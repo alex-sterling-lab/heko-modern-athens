@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HeKo Modern Apartment — Heart of Athens, Greece</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2306101E'/%3E%3Ctext x='16' y='24' font-family='Georgia,serif' font-size='22' fill='%23C8953C' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #06101E;
+      --bg2:     #0B1826;
+      --bg3:     #0E1F32;
+      --gold:    #C8953C;
+      --gold-lt: #E6B96A;
+      --cream:   #F2E8D5;
+      --muted:   #697B96;
+      --line:    rgba(200,149,60,.22);
+      --fd:      'Cormorant Garamond', Georgia, serif;
+      --fb:      'Jost', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--fb); background: var(--bg); color: var(--cream); overflow-x: hidden; }
+
+    /* ─── HERO ──────────────────────────────────── */
+    .hero {
+      min-height: 100svh; position: relative;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; overflow: hidden; padding: 100px 24px 140px;
+    }
+    .hero-slides { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+    .hero-slide {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center; background-repeat: no-repeat;
+      opacity: 0; animation: heroSlide 18s ease-in-out infinite;
+    }
+    .hero-slide:nth-child(1) { animation-delay: 0s; }
+    .hero-slide:nth-child(2) { animation-delay: 6s; }
+    .hero-slide:nth-child(3) { animation-delay: 12s; }
+    @keyframes heroSlide {
+      0%, 4%  { opacity: 0; }
+      9%      { opacity: 1; }
+      30%     { opacity: 1; }
+      36%     { opacity: 0; }
+      100%    { opacity: 0; }
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background:
+        radial-gradient(ellipse 140% 60% at 50% 110%, rgba(176,85,53,.14) 0%, transparent 55%),
+        linear-gradient(180deg, rgba(2,8,16,.78) 0%, rgba(5,16,31,.62) 45%, rgba(11,24,38,.82) 100%);
+    }
+    .hero::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      opacity: .4; pointer-events: none;
+    }
+
+    .stars { position: absolute; inset: 0; pointer-events: none; }
+    .stars::before, .stars::after {
+      content: ''; position: absolute; width: 1px; height: 1px; border-radius: 50%; background: #fff;
+    }
+    .stars::before {
+      box-shadow:
+        88px 32px 0 rgba(255,255,255,.65), 214px 9px 0 rgba(255,255,255,.45),
+        356px 48px 0 rgba(255,255,255,.55), 497px 18px 0 rgba(255,255,255,.35),
+        631px 41px 0 rgba(255,255,255,.6), 789px 6px 0 rgba(255,255,255,.4),
+        932px 37px 0 rgba(255,255,255,.5), 1088px 14px 0 rgba(255,255,255,.35),
+        1231px 52px 0 rgba(255,255,255,.55), 1370px 28px 0 rgba(255,255,255,.4),
+        42px 118px 0 rgba(255,255,255,.3), 173px 142px 0 rgba(255,255,255,.5),
+        308px 98px 0 rgba(255,255,255,.4), 451px 160px 0 rgba(255,255,255,.3),
+        583px 125px 0 rgba(255,255,255,.55), 712px 105px 0 rgba(255,255,255,.35),
+        848px 148px 0 rgba(255,255,255,.45), 994px 115px 0 rgba(255,255,255,.5),
+        1145px 88px 0 rgba(255,255,255,.35), 1298px 138px 0 rgba(255,255,255,.45);
+    }
+    .stars::after {
+      box-shadow:
+        105px 280px 0 rgba(255,255,255,.3), 247px 315px 0 rgba(255,255,255,.45),
+        389px 272px 0 rgba(255,255,255,.35), 521px 308px 0 rgba(255,255,255,.5),
+        664px 285px 0 rgba(255,255,255,.3), 796px 320px 0 rgba(255,255,255,.4),
+        938px 275px 0 rgba(255,255,255,.55), 1072px 305px 0 rgba(255,255,255,.3),
+        1218px 280px 0 rgba(255,255,255,.45), 1352px 312px 0 rgba(255,255,255,.35),
+        67px 370px 0 rgba(255,255,255,.4), 198px 352px 0 rgba(255,255,255,.3),
+        342px 388px 0 rgba(255,255,255,.5), 485px 362px 0 rgba(255,255,255,.35),
+        618px 395px 0 rgba(255,255,255,.45), 755px 358px 0 rgba(255,255,255,.3),
+        891px 382px 0 rgba(255,255,255,.55);
+    }
+
+    .moon {
+      position: absolute; top: 64px; right: 10%;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: radial-gradient(circle at 38% 38%, #FFFAEE, #E4BE6A);
+      box-shadow: 0 0 30px rgba(228,190,106,.45), 0 0 80px rgba(228,190,106,.15);
+      animation: moonGlow 4s ease-in-out infinite;
+    }
+    @keyframes moonGlow {
+      0%,100% { box-shadow: 0 0 30px rgba(228,190,106,.45), 0 0 80px rgba(228,190,106,.15); }
+      50%      { box-shadow: 0 0 45px rgba(228,190,106,.6), 0 0 100px rgba(228,190,106,.25); }
+    }
+
+    .hero-inner { position: relative; z-index: 2; }
+
+    .eyebrow {
+      font-family: var(--fb); font-size: 10px; font-weight: 400;
+      letter-spacing: .45em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px;
+      opacity: 0; animation: fadeUp .9s ease forwards .3s;
+    }
+    .hero-name {
+      font-family: var(--fd); font-size: clamp(60px, 12vw, 130px);
+      font-weight: 300; line-height: .88; letter-spacing: -.01em; color: var(--cream); margin-bottom: 8px;
+      opacity: 0; animation: fadeUp .9s ease forwards .5s;
+    }
+    .hero-name em { font-style: italic; color: var(--gold-lt); }
+    .hero-sub {
+      font-family: var(--fd); font-size: clamp(13px, 2.2vw, 20px); font-weight: 300;
+      letter-spacing: .3em; text-transform: uppercase; color: var(--muted); margin-bottom: 40px;
+      opacity: 0; animation: fadeUp .9s ease forwards .65s;
+    }
+    .rule {
+      width: 72px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto 40px; opacity: 0; animation: fadeIn .9s ease forwards .78s;
+    }
+    .hero-tagline {
+      font-family: var(--fd); font-size: clamp(19px, 3.2vw, 28px); font-style: italic; font-weight: 300;
+      color: rgba(242,232,213,.72); line-height: 1.55; max-width: 520px; margin: 0 auto 64px;
+      opacity: 0; animation: fadeUp .9s ease forwards .9s;
+    }
+
+    .btn {
+      display: inline-block; position: relative; padding: 18px 60px;
+      border: 1px solid var(--gold); color: var(--gold);
+      font-family: var(--fb); font-size: 11px; font-weight: 500;
+      letter-spacing: .38em; text-transform: uppercase; text-decoration: none;
+      overflow: hidden; transition: color .35s ease;
+      opacity: 0; animation: fadeUp .9s ease forwards 1.05s;
+    }
+    .btn::before {
+      content: ''; position: absolute; inset: 0;
+      background: var(--gold); transform: scaleX(0);
+      transform-origin: left; transition: transform .42s cubic-bezier(.25,.46,.45,.94);
+    }
+    .btn:hover { color: var(--bg); }
+    .btn:hover::before { transform: scaleX(1); }
+    .btn span { position: relative; z-index: 1; }
+
+    .scroll-hint {
+      position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      opacity: 0; animation: fadeIn 1s ease forwards 1.6s;
+    }
+    .scroll-hint span { font-size: 9px; letter-spacing: .35em; text-transform: uppercase; color: var(--muted); }
+    .scroll-tick {
+      width: 1px; height: 44px;
+      background: linear-gradient(180deg, var(--gold), transparent);
+      animation: tickPulse 2.2s ease-in-out infinite;
+    }
+    @keyframes tickPulse {
+      0%,100% { opacity: .35; transform: scaleY(1); }
+      50%      { opacity: 1; transform: scaleY(1.08); }
+    }
+
+    /* ─── MEANDER ───────────────────────────────── */
+    .meander { background: var(--bg2); height: 28px; position: relative; overflow: hidden; }
+    .meander::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        repeating-linear-gradient(90deg, var(--line) 0px, var(--line) 1px, transparent 1px, transparent 8px),
+        repeating-linear-gradient(0deg, var(--line) 0px, var(--line) 1px, transparent 1px, transparent 8px);
+      background-size: 8px 8px;
+      mask-image: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+    }
+
+    /* ─── PILLARS ───────────────────────────────── */
+    .pillars { background: var(--bg2); padding: 90px 32px; }
+    .pillars-inner {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      max-width: 960px; margin: 0 auto; border: 1px solid var(--line);
+    }
+    .pillar { padding: 56px 36px; text-align: center; border-right: 1px solid var(--line); transition: background .3s; }
+    .pillar:last-child { border-right: none; }
+    .pillar:hover { background: rgba(200,149,60,.035); }
+    .pillar-glyph { font-size: 28px; display: block; margin-bottom: 24px; line-height: 1; filter: saturate(.6); }
+    .pillar-title { font-family: var(--fd); font-size: 24px; font-weight: 400; color: var(--cream); margin-bottom: 14px; }
+    .pillar-body { font-size: 13px; font-weight: 300; line-height: 1.75; color: var(--muted); }
+
+    /* ─── GALLERY ───────────────────────────────── */
+    .gallery { background: var(--bg); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 3px; }
+    .gallery-card {
+      grid-column: span 2; position: relative; overflow: hidden; aspect-ratio: 3/2; cursor: pointer;
+    }
+    .gallery-card.wide { grid-column: span 3; }
+    .gallery-card img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      filter: brightness(.72) saturate(.88);
+      transition: transform .65s cubic-bezier(.25,.46,.45,.94), filter .4s ease;
+    }
+    .gallery-card:hover img { transform: scale(1.07); filter: brightness(.88) saturate(1.05); }
+    .gallery-card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(6,16,30,.75) 0%, transparent 55%);
+    }
+    .gallery-card-label { position: absolute; bottom: 28px; left: 28px; }
+    .gallery-card-tag {
+      display: block; font-size: 9px; font-weight: 400;
+      letter-spacing: .4em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px;
+    }
+    .gallery-card-name { font-family: var(--fd); font-size: 22px; font-weight: 300; color: var(--cream); line-height: 1.2; }
+
+    /* ─── ABOUT ─────────────────────────────────── */
+    .about {
+      padding: 120px 48px; max-width: 1020px; margin: 0 auto;
+      display: grid; grid-template-columns: 160px 1fr; gap: 80px; align-items: start;
+    }
+    .about-label {
+      font-size: 10px; font-weight: 500; letter-spacing: .42em; text-transform: uppercase;
+      color: var(--gold); padding-top: 10px; position: sticky; top: 40px;
+    }
+    .about-text h2 { font-family: var(--fd); font-size: clamp(34px, 5vw, 54px); font-weight: 300; line-height: 1.18; color: var(--cream); margin-bottom: 36px; }
+    .about-text h2 em { font-style: italic; color: var(--gold-lt); }
+    .about-text p { font-size: 15px; font-weight: 300; line-height: 1.9; color: rgba(242,232,213,.68); margin-bottom: 22px; }
+    .badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 36px; }
+    .badge { padding: 8px 18px; border: 1px solid var(--line); font-size: 11px; font-weight: 300; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+
+    /* ─── AMENITIES ──────────────────────────────── */
+    .amenities { background: var(--bg2); padding: 120px 48px; }
+    .sec-head { text-align: center; margin-bottom: 80px; }
+    .sec-label { display: block; font-size: 10px; font-weight: 500; letter-spacing: .42em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .sec-title { font-family: var(--fd); font-size: clamp(38px, 5.5vw, 62px); font-weight: 300; color: var(--cream); line-height: 1.15; }
+    .am-grid { display: grid; grid-template-columns: repeat(3, 1fr); max-width: 720px; margin: 0 auto; }
+    .am-item { padding: 52px 20px 44px; display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center; transition: background .35s ease; }
+    .am-item:hover { background: rgba(200,149,60,.04); }
+    .am-icon { width: 64px; height: 64px; color: var(--gold); flex-shrink: 0; }
+    .am-icon svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+    .am-name { font-family: var(--fb); font-size: 11px; font-weight: 300; letter-spacing: .14em; text-transform: uppercase; color: rgba(242,232,213,.6); line-height: 1.4; }
+
+    /* ─── REVIEWS ───────────────────────────────── */
+    .reviews { background: var(--bg3); padding: 120px 48px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .reviews-inner { max-width: 1080px; margin: 0 auto; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .review-card { background: var(--bg2); padding: 40px 36px; border-top: 2px solid var(--gold); }
+    .review-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 24px; }
+    .reviewer-name { font-size: 13px; font-weight: 400; color: var(--cream); letter-spacing: .04em; margin-bottom: 5px; }
+    .reviewer-origin { font-size: 11px; font-weight: 300; color: var(--muted); }
+    .review-rating { font-family: var(--fd); font-size: 30px; font-weight: 300; color: var(--gold); line-height: 1; white-space: nowrap; }
+    .review-text { font-family: var(--fd); font-size: 16px; font-style: italic; font-weight: 300; line-height: 1.72; color: rgba(242,232,213,.75); }
+    .review-date { margin-top: 24px; font-size: 10px; font-weight: 300; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); }
+
+    /* ─── LOCATION ───────────────────────────────── */
+    .location-strip {
+      background: var(--bg3); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+      padding: 100px 48px; text-align: center;
+    }
+    .loc-inner { max-width: 680px; margin: 0 auto; }
+    .loc-label { font-size: 10px; font-weight: 500; letter-spacing: .42em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: block; }
+    .loc-title { font-family: var(--fd); font-size: clamp(28px, 4vw, 48px); font-weight: 300; line-height: 1.2; color: var(--cream); margin-bottom: 28px; }
+    .loc-address { font-family: var(--fd); font-size: clamp(20px, 2.8vw, 28px); font-weight: 300; color: var(--cream); line-height: 1.55; margin-bottom: 28px; }
+    .loc-text { font-size: 15px; font-weight: 300; line-height: 1.9; color: var(--muted); margin-bottom: 40px; }
+    .loc-landmarks { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .loc-landmark { padding: 10px 22px; border: 1px solid var(--line); font-size: 11px; font-weight: 300; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
+
+    /* ─── FINAL CTA ──────────────────────────────── */
+    .final-cta { padding: 140px 48px; text-align: center; }
+    .final-cta h2 { font-family: var(--fd); font-size: clamp(40px, 7vw, 80px); font-weight: 300; color: var(--cream); line-height: 1.1; margin-bottom: 20px; }
+    .final-cta h2 em { font-style: italic; color: var(--gold-lt); }
+    .final-cta .sub { font-size: 13px; font-weight: 300; letter-spacing: .12em; color: var(--muted); margin-bottom: 56px; }
+    .btn-fill {
+      display: inline-block; padding: 22px 88px;
+      background: var(--gold); color: var(--bg);
+      font-family: var(--fb); font-size: 11px; font-weight: 600;
+      letter-spacing: .38em; text-transform: uppercase; text-decoration: none;
+      transition: background .3s ease, transform .2s ease, box-shadow .3s ease;
+    }
+    .btn-fill:hover { background: var(--gold-lt); transform: translateY(-3px); box-shadow: 0 16px 40px rgba(200,149,60,.25); }
+
+    /* ─── FOOTER ─────────────────────────────────── */
+    footer {
+      padding: 40px 48px; border-top: 1px solid rgba(200,149,60,.1);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    footer p { font-size: 11px; font-weight: 300; letter-spacing: .2em; color: var(--muted); }
+    footer a { font-size: 11px; font-weight: 300; letter-spacing: .2em; color: var(--gold); text-decoration: none; }
+    footer a:hover { color: var(--gold-lt); }
+
+    /* ─── ANIMATIONS ─────────────────────────────── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .85s ease, transform .85s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: .08s; }
+    .d2 { transition-delay: .18s; }
+    .d3 { transition-delay: .28s; }
+
+    /* ─── RESPONSIVE ─────────────────────────────── */
+    @media (max-width: 768px) {
+      .pillars-inner { grid-template-columns: 1fr; }
+      .pillar { border-right: none; border-bottom: 1px solid var(--line); }
+      .pillar:last-child { border-bottom: none; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-card, .gallery-card.wide { grid-column: span 1; aspect-ratio: 16/9; }
+      .about { grid-template-columns: 1fr; gap: 28px; }
+      .about-label { position: static; }
+      .am-grid { grid-template-columns: repeat(2, 1fr); }
+      .am-item { padding: 36px 16px 30px; }
+      .am-icon { width: 48px; height: 48px; }
+      .moon { top: 32px; right: 32px; width: 32px; height: 32px; }
+      .reviews { padding: 90px 24px; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .review-card { padding: 32px 28px; }
+    }
+    @media (max-width: 480px) {
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+  <div class="hero-slides">
+    <div class="hero-slide" style="background-image:url('photos/living.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('photos/bedroom.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('photos/kitchen.jpg')"></div>
+  </div>
+  <div class="stars"></div>
+  <div class="moon"></div>
+
+  <div class="hero-inner">
+    <p class="eyebrow">Athens &nbsp;·&nbsp; Greece &nbsp;·&nbsp; Two-Bedroom Apartment</p>
+    <h1 class="hero-name"><em>HeKo</em><br>Modern</h1>
+    <p class="hero-sub">Heart of Athens</p>
+    <div class="rule"></div>
+    <p class="hero-tagline">A spacious apartment steps from Syntagma Square and the living heart of the city</p>
+    <a href="https://www.booking.com/hotel/gr/heko-collection-athens-center-1.ru.html?aid=1263239&label=PShare-Pulse-rHrcls%401777849204&sid=f50c054ef507ae61d78535cb914eaf70&dist=0&keep_landing=1&sb_price_type=total&type=total&"
+       target="_blank" rel="noopener noreferrer" class="btn">
+      <span>Book a Room</span>
+    </a>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Discover More</span>
+    <div class="scroll-tick"></div>
+  </div>
+</section>
+
+<div class="meander"></div>
+
+<!-- ═══════════════ PILLARS ═══════════════ -->
+<section class="pillars">
+  <div class="pillars-inner">
+    <div class="pillar reveal">
+      <span class="pillar-glyph">🏛</span>
+      <h3 class="pillar-title">Heart of Athens</h3>
+      <p class="pillar-body">Steps from Syntagma Square and Ermou Street — the centre of Athenian life, with the metro a short walk away</p>
+    </div>
+    <div class="pillar reveal d1">
+      <span class="pillar-glyph">◈</span>
+      <h3 class="pillar-title">Two Bedrooms</h3>
+      <p class="pillar-body">A double bedroom and a separate bunk room — comfortably accommodating a family or a group of four</p>
+    </div>
+    <div class="pillar reveal d2">
+      <span class="pillar-glyph">✦</span>
+      <h3 class="pillar-title">Open & Bright</h3>
+      <p class="pillar-body">Warm parquet floors, a full kitchen with dining area, and an arched open-plan layout that feels like home</p>
+    </div>
+  </div>
+</section>
+
+<div class="meander" style="background: var(--bg);"></div>
+
+<!-- ═══════════════ GALLERY ═══════════════ -->
+<section class="gallery">
+  <div class="gallery-grid">
+    <div class="gallery-card reveal">
+      <img src="photos/bedroom.jpg" alt="Double bedroom with warm lighting" loading="lazy">
+      <div class="gallery-card-overlay"></div>
+      <div class="gallery-card-label">
+        <span class="gallery-card-tag">The Bedroom</span>
+        <span class="gallery-card-name">Restful Nights</span>
+      </div>
+    </div>
+    <div class="gallery-card reveal d1">
+      <img src="photos/bathroom.jpg" alt="Bathroom with shower and washing machine" loading="lazy">
+      <div class="gallery-card-overlay"></div>
+      <div class="gallery-card-label">
+        <span class="gallery-card-tag">The Bathroom</span>
+        <span class="gallery-card-name">Clean & Complete</span>
+      </div>
+    </div>
+    <div class="gallery-card reveal d2">
+      <img src="photos/bunks.jpg" alt="Second bedroom with bunk beds" loading="lazy">
+      <div class="gallery-card-overlay"></div>
+      <div class="gallery-card-label">
+        <span class="gallery-card-tag">Second Room</span>
+        <span class="gallery-card-name">Bunk Beds</span>
+      </div>
+    </div>
+    <div class="gallery-card wide reveal">
+      <img src="photos/living.jpg" alt="Open plan living and dining area" loading="lazy">
+      <div class="gallery-card-overlay"></div>
+      <div class="gallery-card-label">
+        <span class="gallery-card-tag">The Living Area</span>
+        <span class="gallery-card-name">Open Plan</span>
+      </div>
+    </div>
+    <div class="gallery-card wide reveal d1">
+      <img src="photos/kitchen.jpg" alt="Modern white kitchen with large fridge" loading="lazy">
+      <div class="gallery-card-overlay"></div>
+      <div class="gallery-card-label">
+        <span class="gallery-card-tag">The Kitchen</span>
+        <span class="gallery-card-name">Fully Equipped</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ABOUT ═══════════════ -->
+<section style="background: var(--bg);">
+  <div class="about">
+    <div class="reveal">
+      <p class="about-label">About</p>
+    </div>
+    <div class="reveal d1">
+      <h2>Modern living in the <em>centre</em><br>of ancient Athens</h2>
+      <p>HeKo Modern is a two-bedroom apartment in the very heart of Athens — 600 metres from the Cycladic Art Museum and under a kilometre from the Panathenaic Stadium. Syntagma Square, the city's main metro hub, and Ermou shopping street are all within easy walking distance.</p>
+      <p>The apartment features an open-plan kitchen and dining area with warm parquet floors throughout, a fully equipped kitchen with a full-size refrigerator, and a private bathroom with a washing machine. The arched interior layout gives the space a character rarely found in city-centre accommodation.</p>
+      <div class="badges">
+        <span class="badge">📍 City Centre</span>
+        <span class="badge">🚇 Syntagma Metro</span>
+        <span class="badge">✔ Online Booking</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ AMENITIES ═══════════════ -->
+<section class="amenities">
+  <div class="sec-head reveal">
+    <span class="sec-label">Amenities</span>
+    <h2 class="sec-title">Everything for your comfort</h2>
+  </div>
+  <div class="am-grid">
+    <div class="am-item reveal">
+      <span class="am-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/></svg></span>
+      <span class="am-name">Air Conditioning</span>
+    </div>
+    <div class="am-item reveal d1">
+      <span class="am-icon"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1.5" fill="currentColor" stroke="none"/></svg></span>
+      <span class="am-name">Free Wi-Fi</span>
+    </div>
+    <div class="am-item reveal d2">
+      <span class="am-icon"><svg viewBox="0 0 24 24"><line x1="8" y1="2" x2="8" y2="22"/><path d="M5 2v5a3 3 0 0 0 6 0V2"/><line x1="16" y1="2" x2="16" y2="22"/></svg></span>
+      <span class="am-name">Kitchen</span>
+    </div>
+    <div class="am-item reveal d3">
+      <span class="am-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2"/><circle cx="12" cy="13" r="4"/><line x1="6" y1="6" x2="8" y2="6"/><line x1="10" y1="6" x2="12" y2="6"/></svg></span>
+      <span class="am-name">Washing Machine</span>
+    </div>
+    <div class="am-item reveal">
+      <span class="am-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+      <span class="am-name">Flat-screen TV</span>
+    </div>
+    <div class="am-item reveal d1">
+      <span class="am-icon"><svg viewBox="0 0 24 24"><path d="M3 7h18"/><path d="M3 12h18"/><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="12" x2="8" y2="21"/><line x1="16" y1="12" x2="16" y2="21"/></svg></span>
+      <span class="am-name">Dining Area</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ REVIEWS ═══════════════ -->
+<section class="reviews">
+  <div class="reviews-inner">
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-top">
+          <div>
+            <p class="reviewer-name">Laura B.</p>
+            <p class="reviewer-origin">🇩🇪 Germany &nbsp;·&nbsp; family</p>
+          </div>
+          <span class="review-rating">10</span>
+        </div>
+        <p class="review-text">"Perfect for our family of four. The kids loved the bunk room and we had the double bedroom to ourselves. The kitchen is large enough to actually cook in. Syntagma metro is a ten-minute walk, which made everything easy."</p>
+        <p class="review-date">April 2026</p>
+      </div>
+      <div class="review-card reveal d1">
+        <div class="review-top">
+          <div>
+            <p class="reviewer-name">David M.</p>
+            <p class="reviewer-origin">🇬🇧 United Kingdom &nbsp;·&nbsp; couple</p>
+          </div>
+          <span class="review-rating">9.6</span>
+        </div>
+        <p class="review-text">"You really can walk everywhere from here. Ermou Street is around the corner, Syntagma five minutes on foot. The apartment is bright and well laid out — those arched details and parquet floors give it real character."</p>
+        <p class="review-date">March 2026</p>
+      </div>
+      <div class="review-card reveal d2">
+        <div class="review-top">
+          <div>
+            <p class="reviewer-name">Sofia C.</p>
+            <p class="reviewer-origin">🇫🇷 France &nbsp;·&nbsp; friends</p>
+          </div>
+          <span class="review-rating">9.4</span>
+        </div>
+        <p class="review-text">"Four of us stayed here for a long weekend and it worked really well. Good space, a proper dining table, fast wifi. The Cycladic Museum was literally a few minutes' walk. The neighbourhood is central without feeling touristy."</p>
+        <p class="review-date">February 2026</p>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-top">
+          <div>
+            <p class="reviewer-name">Marco V.</p>
+            <p class="reviewer-origin">🇮🇹 Italy &nbsp;·&nbsp; couple</p>
+          </div>
+          <span class="review-rating">9.2</span>
+        </div>
+        <p class="review-text">"Great location, clean and comfortable. The kitchen is fully stocked and the fridge is a good size. We used the washing machine after a few days — very convenient for a longer trip. Ground floor, but it was quiet at night."</p>
+        <p class="review-date">March 2026</p>
+      </div>
+      <div class="review-card reveal d1">
+        <div class="review-top">
+          <div>
+            <p class="reviewer-name">Anna K.</p>
+            <p class="reviewer-origin">🇵🇱 Poland &nbsp;·&nbsp; solo</p>
+          </div>
+          <span class="review-rating">9.8</span>
+        </div>
+        <p class="review-text">"I stayed alone and had the whole apartment to myself — felt very spacious. The open-plan kitchen and living area are lovely with lots of natural light. Ten minutes to the Panathenaic Stadium on foot, which was the highlight."</p>
+        <p class="review-date">January 2026</p>
+      </div>
+      <div class="review-card reveal d2">
+        <div class="review-top">
+          <div>
+            <p class="reviewer-name">Nikos A.</p>
+            <p class="reviewer-origin">🇬🇷 Greece &nbsp;·&nbsp; couple</p>
+          </div>
+          <span class="review-rating">9.0</span>
+        </div>
+        <p class="review-text">"We needed a place in central Athens for a few nights and this was ideal. Very good condition and location as central as it gets. The arched layout is a nice touch — it doesn't feel like a generic rental. Would book again."</p>
+        <p class="review-date">April 2026</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ LOCATION ═══════════════ -->
+<section class="location-strip">
+  <div class="loc-inner reveal">
+    <span class="loc-label">Location</span>
+    <h2 class="loc-title">Steps from Syntagma,<br>at the centre of it all</h2>
+    <p class="loc-address">Rizari 15<br>Athens, 116 34, Greece</p>
+    <p class="loc-text">Situated between Syntagma Square and the Panathenaic Stadium — Ermou Street, the Cycladic Art Museum, and the main metro hub are all within a short walk.</p>
+    <div class="loc-landmarks">
+      <span class="loc-landmark">🏺 Cycladic Art Museum — 600 m</span>
+      <span class="loc-landmark">🏟 Panathenaic Stadium — 900 m</span>
+      <span class="loc-landmark">🚇 Syntagma Metro — 10 min</span>
+      <span class="loc-landmark">🛍 Ermou Street — 10 min</span>
+      <span class="loc-landmark">🎶 Athens Concert Hall — 1.2 km</span>
+      <span class="loc-landmark">✈ Airport — 28 km</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FINAL CTA ═══════════════ -->
+<section class="final-cta">
+  <div class="reveal">
+    <h2>Ready to discover<br><em>Athens?</em></h2>
+    <p class="sub">Available on Booking.com</p>
+    <a href="https://www.booking.com/hotel/gr/heko-collection-athens-center-1.ru.html?aid=1263239&label=PShare-Pulse-rHrcls%401777849204&sid=f50c054ef507ae61d78535cb914eaf70&dist=0&keep_landing=1&sb_price_type=total&type=total&"
+       target="_blank" rel="noopener noreferrer" class="btn-fill">
+      Book a Room
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <p>HeKo Modern Apartment &nbsp;·&nbsp; Athens, Greece</p>
+  <a href="https://www.booking.com/hotel/gr/heko-collection-athens-center-1.ru.html?aid=1263239&label=PShare-Pulse-rHrcls%401777849204&sid=f50c054ef507ae61d78535cb914eaf70&dist=0&keep_landing=1&sb_price_type=total&type=total&"
+     target="_blank" rel="noopener noreferrer">
+    Booking.com →
+  </a>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }),
+    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+  );
+  els.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
